@@ -99,130 +99,6 @@ html,body{width:100%;height:100%;font-family:'Lato',sans-serif;overflow:hidden;b
 .snap-note{font-size:.8rem;color:#b07090;margin-top:.5rem;display:block;}
 
 /* ═══════════════════════════════════
-   SLIDE HP — Sorting Hat (Harry Potter)
-   ═══════════════════════════════════ */
-#slideHP,.hp-bg{
-  background:
-    radial-gradient(ellipse at 30% 20%,rgba(108,70,180,.25) 0%,transparent 50%),
-    radial-gradient(ellipse at 75% 15%,rgba(245,208,97,.12) 0%,transparent 45%),
-    linear-gradient(180deg,#0a0a22 0%,#15142f 40%,#1f1b3a 75%,#0a0a22 100%);
-  position:relative;overflow:hidden;
-}
-.hp-castle{
-  position:absolute;bottom:0;left:0;width:100%;height:42%;
-  z-index:0;opacity:.5;pointer-events:none;
-}
-.hp-moon{
-  position:absolute;top:6%;right:10%;width:70px;height:70px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%,#fdf6e3,#f5d061 70%);
-  box-shadow:0 0 50px rgba(245,208,97,.55),0 0 90px rgba(245,208,97,.25);
-  z-index:0;
-}
-.hp-snitch{
-  position:absolute;font-size:1.3rem;z-index:1;pointer-events:none;
-  animation:hpSnitchFly 9s ease-in-out infinite;
-  filter:drop-shadow(0 0 6px rgba(245,208,97,.7));
-}
-@keyframes hpSnitchFly{
-  0%{top:70%;left:8%;transform:rotate(0deg);}
-  20%{top:30%;left:30%;transform:rotate(15deg);}
-  40%{top:55%;left:55%;transform:rotate(-10deg);}
-  60%{top:20%;left:75%;transform:rotate(20deg);}
-  80%{top:60%;left:85%;transform:rotate(-15deg);}
-  100%{top:70%;left:8%;transform:rotate(0deg);}
-}
-.hp-candle{position:absolute;font-size:1rem;opacity:0;animation:hpCandleRise 7s ease-in infinite;}
-@keyframes hpCandleRise{
-  0%{transform:translateY(20vh) translateX(0);opacity:0;}
-  10%{opacity:.85;}
-  50%{transform:translateY(-20vh) translateX(8px);}
-  90%{opacity:.6;}
-  100%{transform:translateY(-60vh) translateX(-6px);opacity:0;}
-}
-.hp-stars{position:absolute;inset:0;pointer-events:none;z-index:0;}
-.hp-star{position:absolute;color:#f5d061;opacity:0;font-size:.8rem;animation:hpTwinkle 3s ease-in-out infinite;}
-@keyframes hpTwinkle{0%,100%{opacity:0;transform:scale(.6);}50%{opacity:.9;transform:scale(1.1);}}
-.hp-card{
-  background:rgba(15,13,36,.72);backdrop-filter:blur(14px);
-  border:1.5px solid rgba(245,208,97,.4);border-radius:24px;
-  padding:2.4rem 2rem 2rem;max-width:430px;width:100%;
-  text-align:center;box-shadow:0 8px 50px rgba(0,0,0,.55),0 0 50px rgba(245,208,97,.1);
-  position:relative;z-index:2;animation:fadeUp .6s ease both;
-}
-.hp-card::before{
-  content:'';position:absolute;inset:0;border-radius:24px;padding:1.5px;
-  background:linear-gradient(135deg,rgba(245,208,97,.5),transparent 30%,transparent 70%,rgba(245,208,97,.5));
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  pointer-events:none;
-}
-.hp-hat{font-size:3.2rem;display:block;margin-bottom:.6rem;animation:hpFloat 3s ease-in-out infinite;}
-@keyframes hpFloat{0%,100%{transform:translateY(0) rotate(-3deg);}50%{transform:translateY(-8px) rotate(3deg);}}
-.hp-title{
-  font-family:'Playfair Display',serif;font-size:1.55rem;color:#f5d061;
-  margin-bottom:.35rem;line-height:1.3;text-shadow:0 0 18px rgba(245,208,97,.35);
-}
-.hp-sub{color:#c8c2e0;font-size:.9rem;margin-bottom:1.6rem;line-height:1.6;}
-.hp-houses{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1rem;}
-.hp-house-btn{
-  border:1.5px solid rgba(245,208,97,.3);border-radius:16px;
-  background:rgba(255,255,255,.04);color:#e8e4f5;
-  padding:.85rem .5rem;cursor:pointer;font-family:'Lato',sans-serif;
-  font-weight:700;font-size:.88rem;transition:all .2s;
-  display:flex;flex-direction:column;align-items:center;gap:.25rem;
-}
-.hp-house-btn span{font-size:1.3rem;}
-.hp-house-btn:hover{transform:translateY(-3px);background:rgba(245,208,97,.1);border-color:#f5d061;}
-.hp-house-btn.gryffindor:hover,.hp-house-btn.gryffindor.chosen{border-color:#ae0001;box-shadow:0 0 16px rgba(174,0,1,.5);}
-.hp-house-btn.slytherin:hover,.hp-house-btn.slytherin.chosen{border-color:#2a623d;box-shadow:0 0 16px rgba(42,98,61,.5);}
-.hp-house-btn.ravenclaw:hover,.hp-house-btn.ravenclaw.chosen{border-color:#5e8fc4;box-shadow:0 0 16px rgba(94,143,196,.5);}
-.hp-house-btn.hufflepuff:hover,.hp-house-btn.hufflepuff.chosen{border-color:#ecb939;box-shadow:0 0 16px rgba(236,185,57,.5);}
-.hp-result{
-  display:none;margin-bottom:1.2rem;padding:1rem 1rem .9rem;
-  border-radius:16px;border:1.5px solid rgba(245,208,97,.4);
-  background:rgba(245,208,97,.06);animation:fadeUp .5s ease both;
-}
-.hp-result-house{font-family:'Playfair Display',serif;font-size:1.4rem;color:#f5d061;margin-bottom:.3rem;}
-.hp-result-text{color:#d8d3ec;font-size:.85rem;line-height:1.6;font-style:italic;}
-.hp-btn-continue{
-  display:none;background:linear-gradient(135deg,#f5d061,#c9981f);
-  color:#1a1a3e;border:none;border-radius:50px;padding:.8rem 2rem;
-  font-size:1rem;cursor:pointer;font-family:'Lato',sans-serif;font-weight:700;
-  box-shadow:0 4px 18px rgba(245,208,97,.4);transition:transform .2s;
-}
-.hp-btn-continue:hover{transform:translateY(-2px);}
-
-/* Hogwarts-letter style card used on Slide 1 (first impression) */
-.hp-letter-card{
-  background:rgba(15,13,36,.72);backdrop-filter:blur(14px);
-  border:1.5px solid rgba(245,208,97,.4);border-radius:22px;
-  padding:2.6rem 2.2rem 2.2rem;max-width:420px;width:100%;
-  text-align:center;box-shadow:0 8px 50px rgba(0,0,0,.55),0 0 50px rgba(245,208,97,.1);
-  position:relative;z-index:2;animation:fadeUp .6s ease both;
-}
-.hp-seal{
-  width:54px;height:54px;border-radius:50%;margin:0 auto .9rem;
-  background:radial-gradient(circle at 35% 30%,#d4af37,#9d174d 75%);
-  display:flex;align-items:center;justify-content:center;font-size:1.5rem;
-  box-shadow:0 0 18px rgba(212,175,55,.5),inset 0 0 8px rgba(0,0,0,.3);
-}
-.hp-letter-title{
-  font-family:'Playfair Display',serif;font-size:1.5rem;color:#f5d061;
-  margin-bottom:.3rem;line-height:1.3;text-shadow:0 0 16px rgba(245,208,97,.3);
-}
-.hp-letter-sub{color:#c8c2e0;font-size:.9rem;margin-bottom:1.5rem;line-height:1.6;}
-.hp-letter-card .fancy-input{
-  background:rgba(255,255,255,.06);border:2px solid rgba(245,208,97,.4);
-  color:#f0ecff;
-}
-.hp-letter-card .fancy-input::placeholder{color:#9a93c2;}
-.hp-letter-card .fancy-input:focus{border-color:#f5d061;box-shadow:0 0 0 4px rgba(245,208,97,.15);}
-.hp-letter-card .btn{
-  background:linear-gradient(135deg,#f5d061,#c9981f);color:#1a1a3e;
-  box-shadow:0 4px 18px rgba(245,208,97,.4);
-}
-
-/* ═══════════════════════════════════
    SLIDE 6 — Polaroid / info card style
    ═══════════════════════════════════ */
 #slide6{
@@ -579,6 +455,28 @@ html,body{width:100%;height:100%;font-family:'Lato',sans-serif;overflow:hidden;b
 /* Heart float */
 .heart-float{position:absolute;font-size:1.5rem;opacity:0;animation:heartRise 3.5s ease-in infinite;z-index:2;}
 @keyframes heartRise{0%{transform:translateY(50px) scale(.5);opacity:0;}30%{opacity:.9;}100%{transform:translateY(-160px) scale(1.3);opacity:0;}}
+
+/* === Pure CSS Magical Theme === */
+.slide{
+background:
+radial-gradient(circle at 20% 20%, rgba(255,215,120,.18), transparent 35%),
+radial-gradient(circle at 80% 30%, rgba(130,80,255,.18), transparent 40%),
+radial-gradient(circle at 50% 85%, rgba(60,180,255,.12), transparent 45%),
+linear-gradient(135deg,#050816,#0d1027,#1b1242,#060818)!important;
+background-size:200% 200%!important;
+animation:magicSky 18s ease infinite;
+}
+@keyframes magicSky{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(white 1px,transparent 1px),radial-gradient(#ffeaa7 1px,transparent 1px),radial-gradient(#9be7ff 1px,transparent 1px);background-size:120px 120px,180px 180px,250px 250px;opacity:.55;animation:twinkle 5s ease-in-out infinite alternate;}
+@keyframes twinkle{from{opacity:.25}to{opacity:.7}}
+.slide::after{content:"";position:absolute;inset:-30%;background:radial-gradient(circle,rgba(168,85,247,.18),transparent 60%),radial-gradient(circle,rgba(59,130,246,.15),transparent 65%),radial-gradient(circle,rgba(255,215,120,.10),transparent 60%);filter:blur(90px);animation:fog 20s linear infinite;pointer-events:none;}
+@keyframes fog{from{transform:translate(-5%,-3%) rotate(0)}to{transform:translate(5%,3%) rotate(360deg)}}
+.card,.lock-card,.reject-card,.letter-paper,.s8-card{background:rgba(12,18,40,.72)!important;color:#f8e8b0!important;border:1px solid rgba(255,215,120,.45)!important;backdrop-filter:blur(20px);}
+.card h2,.card p,.s8-row-val,.s8-mini-val{color:#f7e6b2!important;}
+.btn{background:linear-gradient(135deg,#d4af37,#ffd700,#b8860b)!important;color:#1b102f!important;}
+.magic-particle{position:fixed;width:6px;height:6px;border-radius:50%;background:#ffd54f;box-shadow:0 0 12px #ffd54f;animation:floatMagic linear infinite;pointer-events:none;z-index:2}
+@keyframes floatMagic{from{transform:translateY(110vh) scale(.3);opacity:0}20%{opacity:1}80%{opacity:.8}to{transform:translateY(-10vh) scale(1.5);opacity:0}}
+
 </style>
 </head>
 <body>
@@ -603,26 +501,15 @@ html,body{width:100%;height:100%;font-family:'Lato',sans-serif;overflow:hidden;b
 <div id="slider">
 
 <!-- SLIDE 1 -->
-<div class="slide hp-bg" id="slide1">
-  <div class="hp-stars" id="s1Stars"></div>
-  <div class="hp-moon"></div>
-  <svg class="hp-castle" viewBox="0 0 800 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,300 L0,180 L30,180 L30,140 L55,140 L55,180 L90,180 L90,110 L110,90 L130,110 L130,180 L170,180 L170,120 L150,120 L150,95 L200,95 L200,120 L180,120 L180,180 L230,180 L230,150 L250,150 L250,180 L300,180 L300,60 L320,40 L340,60 L340,180 L390,180 L390,130 L410,130 L410,100 L430,100 L430,130 L450,130 L450,180 L500,180 L500,150 L520,150 L520,180 L560,180 L560,70 L580,50 L600,70 L600,180 L650,180 L650,140 L670,140 L670,180 L700,180 L700,160 L720,160 L720,180 L760,180 L760,200 L800,200 L800,300 Z" fill="#05050f"/>
-    <rect x="105" y="100" width="10" height="14" fill="#f5d061" opacity=".7"/>
-    <rect x="315" y="48" width="10" height="14" fill="#f5d061" opacity=".7"/>
-    <rect x="575" y="58" width="10" height="14" fill="#f5d061" opacity=".7"/>
-    <rect x="415" y="108" width="8" height="12" fill="#f5d061" opacity=".5"/>
-  </svg>
-  <div class="hp-snitch">🟡🪽</div>
-  <div id="s1Candles"></div>
-
-  <div class="hp-letter-card">
-    <div class="hp-seal">⚡</div>
-    <h2 class="hp-letter-title">An owl has a letter for you...</h2>
-    <p class="hp-letter-sub">Before it can be delivered, Hogwarts needs to know — what's your lovely name? ❤️</p>
+<div class="slide" id="slide1">
+  <div class="petals" id="petals1"></div>
+  <div class="card">
+    <span class="emoji-top">🌸</span>
+    <h2>What's your lovely name?</h2>
+    <p>I'd love to know ❤️</p>
     <input class="fancy-input" id="nameInput" type="text" placeholder="Your name..." maxlength="30" onkeydown="if(event.key==='Enter')goSlide1()"/>
     <div class="error-msg" id="nameError">⚠️ Please enter your name to continue</div>
-    <button class="btn" onclick="goSlide1()">Continue → ✨</button>
+    <button class="btn" onclick="goSlide1()">Continue →</button>
   </div>
 </div>
 
@@ -675,48 +562,6 @@ html,body{width:100%;height:100%;font-family:'Lato',sans-serif;overflow:hidden;b
     <span class="snap-note">(No pressure ❤️)</span>
     <br/><br/>
     <button class="btn" onclick="goTo(5)">Continue →</button>
-  </div>
-</div>
-
-<!-- SLIDE HP — Sorting Hat (Harry Potter) -->
-<div class="slide" id="slideHP">
-  <div class="hp-stars" id="hpStars"></div>
-  <div class="hp-moon"></div>
-  <svg class="hp-castle" viewBox="0 0 800 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,300 L0,180 L30,180 L30,140 L55,140 L55,180 L90,180 L90,110 L110,90 L130,110 L130,180 L170,180 L170,120 L150,120 L150,95 L200,95 L200,120 L180,120 L180,180 L230,180 L230,150 L250,150 L250,180 L300,180 L300,60 L320,40 L340,60 L340,180 L390,180 L390,130 L410,130 L410,100 L430,100 L430,130 L450,130 L450,180 L500,180 L500,150 L520,150 L520,180 L560,180 L560,70 L580,50 L600,70 L600,180 L650,180 L650,140 L670,140 L670,180 L700,180 L700,160 L720,160 L720,180 L760,180 L760,200 L800,200 L800,300 Z" fill="#05050f"/>
-    <rect x="105" y="100" width="10" height="14" fill="#f5d061" opacity=".7"/>
-    <rect x="315" y="48" width="10" height="14" fill="#f5d061" opacity=".7"/>
-    <rect x="575" y="58" width="10" height="14" fill="#f5d061" opacity=".7"/>
-    <rect x="415" y="108" width="8" height="12" fill="#f5d061" opacity=".5"/>
-  </svg>
-  <div class="hp-snitch">🟡🪽</div>
-  <div id="hpCandles"></div>
-  <div class="hp-card">
-    <span class="hp-hat">🧙‍♀️</span>
-    <h2 class="hp-title">The Sorting Hat has heard about you...</h2>
-    <p class="hp-sub">It already knows you love Hogwarts. <span id="hpName"></span><br>Tap a house and let's see where you truly belong ✨</p>
-
-    <div class="hp-houses" id="hpHouses">
-      <button class="hp-house-btn gryffindor" onclick="chooseHouse('Gryffindor','🦁','Brave, bold, and a little reckless when it matters — you walk into every room like you own it, even on days you don\'t feel like it.')">
-        <span>🦁</span> Gryffindor
-      </button>
-      <button class="hp-house-btn slytherin" onclick="chooseHouse('Slytherin','🐍','Ambitious and sharp — you know exactly what you want, and anyone who underestimates you learns fast.')">
-        <span>🐍</span> Slytherin
-      </button>
-      <button class="hp-house-btn ravenclaw" onclick="chooseHouse('Ravenclaw','🦅','Curious and clever — your mind is your favourite place, and you make even overthinking look graceful.')">
-        <span>🦅</span> Ravenclaw
-      </button>
-      <button class="hp-house-btn hufflepuff" onclick="chooseHouse('Hufflepuff','🦡','Warm, loyal, and endlessly kind — the kind of person people are lucky to have in their corner.')">
-        <span>🦡</span> Hufflepuff
-      </button>
-    </div>
-
-    <div class="hp-result" id="hpResult">
-      <div class="hp-result-house" id="hpResultHouse"></div>
-      <div class="hp-result-text" id="hpResultText"></div>
-    </div>
-
-    <button class="hp-btn-continue" id="hpContinueBtn" onclick="goTo(6)">Continue → ✨</button>
   </div>
 </div>
 
@@ -893,7 +738,7 @@ const SECRET_NAME   = 'vaishnavi';
 const HER_PHOTO_URL = '';
 /* ============================================================ */
 
-let currentSlide=0, totalSlides=9;
+let currentSlide=0, totalSlides=8;
 let userName='', chosenColor='', songName='', musicPlaying=false;
 
 function updateDots(){}
@@ -903,10 +748,9 @@ function goTo(n){
   currentSlide=n;
   document.getElementById('slider').style.transform=`translateX(-${n*100}vw)`;
   updateDots(n);
-  if(n===5) fillHP();
-  if(n===6) fillSlide6();
-  if(n===7) fillLetter();
-  if(n===8) fillSummary();
+  if(n===5) fillSlide6();
+  if(n===6) fillLetter();
+  if(n===7) fillSummary();
 }
 
 function showError(inputId, errorId) {
@@ -954,21 +798,6 @@ function goDob(){
   if (!val) { showError('dobInput','dobError'); return; }
   clearError('dobInput','dobError');
   goTo(4);
-}
-
-// Slide HP fill + interaction
-function fillHP(){
-  document.getElementById('hpName').textContent = userName ? userName+',' : '';
-}
-let chosenHouse='';
-function chooseHouse(house, icon, text){
-  chosenHouse = house;
-  document.querySelectorAll('.hp-house-btn').forEach(b=>b.classList.remove('chosen'));
-  document.querySelector('.hp-house-btn.'+house.toLowerCase()).classList.add('chosen');
-  document.getElementById('hpResultHouse').textContent = `${icon} ${house}!`;
-  document.getElementById('hpResultText').textContent = text;
-  document.getElementById('hpResult').style.display='block';
-  document.getElementById('hpContinueBtn').style.display='inline-flex';
 }
 
 // Slide 6 fill
@@ -1081,7 +910,12 @@ function downloadAndSend(){
   const snap=document.getElementById('snapInput').value.trim();
   const dob=document.getElementById('dobInput').value;
   const dobStr=dob?new Date(dob).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'}):'—';
-  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0;font-family:Georgia,serif;background:linear-gradient(135deg,#fde8f0,#f9dff5);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;}.card{background:rgba(255,255,255,.9);border-radius:24px;padding:2.5rem;max-width:400px;width:100%;text-align:center;box-shadow:0 8px 48px rgba(244,114,182,.2);border:1.5px solid rgba(244,114,182,.25);}h1{font-family:Georgia,serif;font-size:2rem;color:#9d174d;margin-bottom:.3rem;font-style:italic;}.sub{color:#b07090;font-size:.85rem;margin-bottom:1.5rem;}.row{background:rgba(253,232,242,.6);border-radius:12px;padding:.7rem 1rem;margin-bottom:.6rem;text-align:left;display:flex;gap:.8rem;align-items:center;}.icon{font-size:1.2rem;}.lbl{font-size:.65rem;color:rgba(157,23,77,.7);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.05rem;}.val{font-size:.95rem;color:#3b0764;font-weight:700;}.footer{margin-top:1.5rem;font-size:.78rem;color:#d4a0bc;font-style:italic;}</style></head><body><div class="card"><h1>🌸 ${userName||'Beautiful'}</h1><div class="sub">Your special card ❤️</div><div class="row"><span class="icon">🌸</span><div><div class="lbl">Name</div><div class="val">${userName||'—'}</div></div></div><div class="row"><span class="icon">🌈</span><div><div class="lbl">Favourite Colour</div><div class="val">${chosenColor||'—'}</div></div></div><div class="row"><span class="icon">🎵</span><div><div class="lbl">Favourite Song</div><div class="val">${songName||'—'}</div></div></div><div class="row"><span class="icon">🎂</span><div><div class="lbl">Date of Birth</div><div class="val">${dobStr}</div></div></div><div class="row"><span class="icon">👻</span><div><div class="lbl">Snapchat</div><div class="val">${snap||'—'}</div></div></div><div class="footer">Made with ❤️ just for you</div></div></body></html>`;
+  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0;font-family:Georgia,serif;background:linear-gradient(135deg,#fde8f0,#f9dff5);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;}.card{background:rgba(255,255,255,.9);border-radius:24px;padding:2.5rem;max-width:400px;width:100%;text-align:center;box-shadow:0 8px 48px rgba(244,114,182,.2);border:1.5px solid rgba(244,114,182,.25);}h1{font-family:Georgia,serif;font-size:2rem;color:#9d174d;margin-bottom:.3rem;font-style:italic;}.sub{color:#b07090;font-size:.85rem;margin-bottom:1.5rem;}.row{background:rgba(253,232,242,.6);border-radius:12px;padding:.7rem 1rem;margin-bottom:.6rem;text-align:left;display:flex;gap:.8rem;align-items:center;}.icon{font-size:1.2rem;}.lbl{font-size:.65rem;color:rgba(157,23,77,.7);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.05rem;}.val{font-size:.95rem;color:#3b0764;font-weight:700;}.footer{margin-top:1.5rem;font-size:.78rem;color:#d4a0bc;font-style:italic;}</style></head><body><div class="card"><h1>🌸 ${userName||'Beautiful'}</h1><div class="sub">Your special card ❤️</div><div class="row"><span class="icon">🌸</span><div><div class="lbl">Name</div><div class="val">${userName||'—'}</div></div></div><div class="row"><span class="icon">🌈</span><div><div class="lbl">Favourite Colour</div><div class="val">${chosenColor||'—'}</div></div></div><div class="row"><span class="icon">🎵</span><div><div class="lbl">Favourite Song</div><div class="val">${songName||'—'}</div></div></div><div class="row"><span class="icon">🎂</span><div><div class="lbl">Date of Birth</div><div class="val">${dobStr}</div></div></div><div class="row"><span class="icon">👻</span><div><div class="lbl">Snapchat</div><div class="val">${snap||'—'}</div></div></div><div class="footer">Made with ❤️ just for you</div></div>
+<script>
+for(let i=0;i<60;i++){const p=document.createElement('div');p.className='magic-particle';p.style.left=Math.random()*100+'vw';p.style.animationDuration=(6+Math.random()*10)+'s';p.style.animationDelay=Math.random()*8+'s';document.body.appendChild(p);}
+</script>
+
+</body></html>`;
   const blob=new Blob([html],{type:'text/html'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(userName||'beautiful')+'_card.html';a.click();
 }
@@ -1099,38 +933,7 @@ function spawnPetals(id,n){
     c.appendChild(p);
   }
 }
-['petals2','petals3','petals4','petals5','petals7'].forEach(id=>spawnPetals(id,12));
-
-// Stars for HP slide
-function spawnStars(id,n){
-  const c=document.getElementById(id);if(!c)return;
-  for(let i=0;i<n;i++){
-    const s=document.createElement('span');s.className='hp-star';
-    s.textContent=['✨','⭐','🌟'][Math.floor(Math.random()*3)];
-    s.style.left=Math.random()*100+'vw';
-    s.style.top=Math.random()*100+'vh';
-    s.style.animationDelay=(Math.random()*3)+'s';
-    s.style.animationDuration=(2+Math.random()*3)+'s';
-    c.appendChild(s);
-  }
-}
-spawnStars('hpStars',25);
-spawnStars('s1Stars',25);
-
-// Floating candles for HP slide
-function spawnCandles(id,n){
-  const c=document.getElementById(id);if(!c)return;
-  for(let i=0;i<n;i++){
-    const cd=document.createElement('span');cd.className='hp-candle';
-    cd.textContent='🕯️';
-    cd.style.left=(5+Math.random()*90)+'vw';
-    cd.style.animationDelay=(Math.random()*7)+'s';
-    cd.style.animationDuration=(6+Math.random()*4)+'s';
-    c.appendChild(cd);
-  }
-}
-spawnCandles('hpCandles',8);
-spawnCandles('s1Candles',8);
+['petals1','petals2','petals3','petals4','petals5','petals7'].forEach(id=>spawnPetals(id,12));
 
 // Hearts slide 6
 function spawnHearts(){
